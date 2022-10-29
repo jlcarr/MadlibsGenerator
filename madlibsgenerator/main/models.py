@@ -10,6 +10,6 @@ class Substitution(models.Model):
 	base_text = models.ForeignKey(BaseText, on_delete=models.CASCADE)
 	swap_id = models.IntegerField()
 	pos = models.CharField(max_length=10)
-	tag = models.CharField(max_length=10)
+	lemma = models.CharField(max_length=20)
 	def __str__(self):
-		return f"({self.swap_id}: {self.pos}-{self.tag})"
+		return f"({self.swap_id}: {self.pos}-{self.lemma})"

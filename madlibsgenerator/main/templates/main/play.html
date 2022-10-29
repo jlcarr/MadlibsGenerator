@@ -1,7 +1,8 @@
-<form action="{% url 'main:fill' basetext.id %}" method="post">
+<form action="{% url 'main:play' basetext.id %}" method="post">
 	{% csrf_token %}
 	{% for substitution in substitution_list %}
-		<label for="swap{{ substitution.swap_id }}">{{ substitution.pos }}</label> : <input type="text" id="swap{{ substitution.swap_id }}">
+		<label for="swap-{{ substitution.swap_id }}">{{ substitution.pos }}</label> : <input type="text" id="swap-{{ substitution.swap_id }}" name="swap-{{ substitution.swap_id }}">
+		<br>
 	{% endfor %}
 	<br>
 	<input type="submit" value="Fill">
