@@ -23,7 +23,7 @@ def generate_madlib(request):
 		'basetext': basetext_obj,
 		'substitution_set': basetext_obj.substitution_set.all(),
 	}
-	return render(request, "main/saved.html", context)
+	return render(request, "main/generation.html", context)
 
 
 class Play(TemplateView):

@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h2>Madlib Generated</h2>
+<p>{{ basetext.text }}</p>
+<br>
+<a href="{% url 'main:play' basetext.id %}">Play</a>
+<button onclick="navigator.clipboard.writeText('{{ request.get_host }}{% url 'main:play' basetext.id %}')">copy link</button>
+{% endblock %}

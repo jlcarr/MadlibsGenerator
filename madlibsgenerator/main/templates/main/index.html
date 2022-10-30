@@ -1,10 +1,13 @@
-<h1>Madlibs Generate</h1>
-<h3>with AI power!</h3>
+{% extends 'main/base.html' %}
 
-<h2>Enter your text</h2>
-<form action="{% url 'main:generate' %}" method="post">
-	{% csrf_token %}
-	<textarea id="basetext" name="basetext" rows="6" cols="100"></textarea>
-	<br>
-	<input type="submit" value="Generate">
-</form>
+{% block content %}
+<div>
+	<h2>Enter your text</h2>
+	<form action="{% url 'main:generate' %}" method="post">
+		{% csrf_token %}
+		<textarea id="basetext" name="basetext" rows="6" cols="100" style="resize: none;"></textarea>
+		<br>
+		<input type="submit" value="Generate">
+	</form>
+</div>
+{% endblock %}
