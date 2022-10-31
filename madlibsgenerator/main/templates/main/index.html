@@ -3,11 +3,23 @@
 {% block content %}
 <div>
 	<h2>Enter your text</h2>
+	It's advised you use more than 50 characters, but fewer than 200 characters for best results.
+	<br>
+	<br>
 	<form action="{% url 'main:generate' %}" method="post">
 		{% csrf_token %}
 		<textarea id="basetext" name="basetext" rows="6" cols="100" style="resize: none;"></textarea>
 		<br>
+		<span id="length-count">0</span> characters
+		<br>
 		<input type="submit" value="Generate">
 	</form>
 </div>
+<script>
+const textarea = document.querySelector("textarea");
+const lengthCount = document.querySelector("#length-count");
+textarea.addEventListener("input", ({ currentTarget: target }) => {
+	lengthCount.innerText = target.value.length;
+});
+</script>
 {% endblock %}
