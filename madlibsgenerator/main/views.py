@@ -47,5 +47,6 @@ class Play(TemplateView):
 			substitutions[swap_id] = request.POST[key]
 		context = {
 			'text': madlibs.sub_inflected(basetext.text, substitutions),
+			'basetext': basetext,
 		}
 		return render(request, "main/filled.html", context)

@@ -1,5 +1,9 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-{{ text }}
+{{ text | linebreaksbr }}
+
+<br>
+<br>
+<a href="{% url 'main:play' basetext.id %}">Play again</a>
 {% endblock %}

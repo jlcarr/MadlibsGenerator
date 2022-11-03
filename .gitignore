@@ -130,3 +130,5 @@ dmypy.json
 
 .gitignore
 .DS_Store
+deploy/
+assets/
