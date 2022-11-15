@@ -2,8 +2,11 @@
 
 {% block content %}
 <h2>Madlib Generated</h2>
-<p>{{ basetext.text | linebreaksbr }}</p>
-<br>
-<a href="{% url 'main:play' basetext.id %}">Play</a>
-<button onclick="navigator.clipboard.writeText('{{ request.get_host }}{% url 'main:play' basetext.id %}')">copy link</button>
+<div class="container p-3 border">
+	{{ basetext.text | linebreaksbr }}
+</div>
+<div class="text-right mt-3">
+	<a href="{% url 'main:play' basetext.id %}" class="btn btn-primary">Play</a>
+	<button onclick="navigator.clipboard.writeText('{{ request.get_host }}{% url 'main:play' basetext.id %}')" class="btn btn-primary">copy link</button>
+</div>
 {% endblock %}

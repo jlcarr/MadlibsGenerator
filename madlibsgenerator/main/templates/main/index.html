@@ -1,25 +1,28 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<div>
-	<h2>Enter your text</h2>
-	It's advised you use more than 50 characters, but fewer than 200 characters for best results.
-	<br>
-	<br>
-	<form action="{% url 'main:generate' %}" method="post">
-		{% csrf_token %}
-		<textarea id="basetext" name="basetext" rows="6" cols="100" style="resize: none;"></textarea>
-		<br>
+<h2>Enter your text</h2>
+<form action="{% url 'main:generate' %}" method="post" class="mt-3">
+	{% csrf_token %}
+	<div class="form-group">
+		<textarea id="basetext" name="basetext" rows="6" cols="100" style="resize: none;" class="form-control"></textarea>
 		<span id="length-count">0</span> characters
 		<br>
-		<input type="submit" value="Generate">
-	</form>
-</div>
+		<input type="submit" value="Generate" class="btn btn-primary">
+	</div>
+</form>
 <script>
-const textarea = document.querySelector("textarea");
-const lengthCount = document.querySelector("#length-count");
-textarea.addEventListener("input", ({ currentTarget: target }) => {
-	lengthCount.innerText = target.value.length;
-});
+	const textarea = document.querySelector("textarea");
+	const lengthCount = document.querySelector("#length-count");
+	textarea.addEventListener("input", ({ currentTarget: target }) => {
+		lengthCount.innerText = target.value.length;
+	});
 </script>
+<br>
+<h3>Hints</h3>
+<ul>
+	<li>It's advised you use more than 50 characters, but fewer than 200 characters for best results.</li>
+	<li>Try using the chorus of your favorite song, or a stanza of your favorite poem!</li>
+	<li>The less slang and jargon in your input, the better our AI is to understand and process your input.</li>
+</ul>
 {% endblock %}

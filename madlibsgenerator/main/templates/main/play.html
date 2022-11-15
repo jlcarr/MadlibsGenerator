@@ -3,14 +3,16 @@
 {% block content %}
 <h2>Fill in the Parts of Speech</h2>
 Don't worry about conjugation and inflection: our AI will do it for you!
-<br>
-<form action="{% url 'main:play' basetext.id %}" method="post">
+<form action="{% url 'main:play' basetext.id %}" method="post" class="mt-3">
 	{% csrf_token %}
-	{% for substitution in substitution_list %}
-		<label for="swap-{{ substitution.swap_id }}">{{ substitution.pos }}</label> : <input type="text" id="swap-{{ substitution.swap_id }}" name="swap-{{ substitution.swap_id }}">
-		<br>
-	{% endfor %}
-	<br>
-	<input type="submit" value="Fill">
+	<div class="container py-2 my-1 border">
+		{% for substitution in substitution_list %}
+			<div class="input-group my-2 flex-nowrap align-items-center">
+				<label for="swap-{{ substitution.swap_id }}" class="col-auto me-3 col-form-label">{{ substitution.pos }} : </label>
+				<input type="text" id="swap-{{ substitution.swap_id }}" name="swap-{{ substitution.swap_id }}" class="col form-control">
+			</div>
+		{% endfor %}
+	</div>
+	<input type="submit" value="Fill" class="btn btn-primary">
 </form>
 {% endblock %}

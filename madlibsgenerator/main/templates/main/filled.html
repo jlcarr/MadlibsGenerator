@@ -1,9 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-{{ text | linebreaksbr }}
-
-<br>
-<br>
-<a href="{% url 'main:play' basetext.id %}">Play again</a>
+<h2>Filled Madlib</h2>
+<div class="container p-3 border">
+	{{ text | linebreaksbr }}
+</div>
+<div class="text-right mt-3">
+	<a href="{% url 'main:play' basetext.id %}" class="btn btn-primary">Play again</a>
+</div>
 {% endblock %}
