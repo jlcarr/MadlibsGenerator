@@ -1,10 +1,24 @@
 # MadlibsGenerator
-A Python project using Spacy's NLP engine to generate madlibs from given text.
+A Python project using Spacy's NLP engine to generate madlibs from given text, web powered by Django and Bootstrap 5.
+
+
+![Madlibs Generator logo](https://i2.lensdump.com/i/RtI3LC.png)
 
 ## Description
+Madlibs are small games in which players are given lists of parts of speechi (e.g. noun, verb, etc), and the words they give are inserted into a phrasal template in order to produce silly stories.
 
+Part of speech tagging is a common part of natural language processing, and many tools exist to perform this task automatically. A popular Python library, which offer "industrial strength out-of-the-box" is Spacy.
+
+The goal of this project is to allow users to provide any base text they want (e.g. song choruses, favorite poem stanzas, etc) and use Spacy's PoS tagging and some string manipulation to automatically create a Madlib from the base text, and furthermore provide a link the users to share their Madlibs with friends, and for the friends to be able to play them online.
 
 ## References
+### Madlibs and NLP
+- https://en.wikipedia.org/wiki/Mad_Libs
+- https://en.wikipedia.org/wiki/Phrasal_template
+- https://en.wikipedia.org/wiki/Part_of_speech
+- https://en.wikipedia.org/wiki/Natural_language_processing
+- https://en.wikipedia.org/wiki/SpaCy
+- https://spacy.io/
 ### Django
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/
 - https://github.com/cdubz/first-django-app

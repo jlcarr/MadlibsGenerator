@@ -77,6 +77,7 @@ def sub_inflected(basetext, substitutions):
 		base_replacement = substitutions[swap_id]
 		new_token = base_replacement
 		if tag not in ['PRP', 'NNP', 'NNPS', 'CD']:
+			base_replacement = base_replacement.lower()
 			new_token = nlp(base_replacement)[0]._.inflect(tag)
 			if not new_token:
 				new_token = base_replacement
