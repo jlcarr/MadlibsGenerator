@@ -7,12 +7,18 @@ from .models import BaseText, Substitution
 
 from . import madlibs
 
+import re
+
 def index(request):
 	return render(request, 'main/index.html')
 
 
 def generate_madlib(request):
 	text = request.POST['basetext']
+	if len(text) > 3000:
+		return render(request, 'main/index.html')
+	if 'http' in text or '@' in text or re.search(r"[A-Za-z0-9]+\.[a-z0-9]{1,4}\b", text):
+		return render(request, 'main/index.html')
 	basetext, substitutions = madlibs.generate_madlib(text)
 	basetext_obj = BaseText(text=basetext)
 	basetext_obj.save()
