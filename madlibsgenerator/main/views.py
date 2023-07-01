@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.template import loader
 from django.views.generic import TemplateView
 
@@ -16,9 +17,9 @@ def index(request):
 def generate_madlib(request):
 	text = request.POST['basetext']
 	if len(text) > 3000:
-		return render(request, 'main/index.html')
+		return redirect("/")
 	if 'http' in text or '@' in text or re.search(r"[A-Za-z0-9]+\.[a-z0-9]{1,4}\b", text):
-		return render(request, 'main/index.html')
+		return redirect("/")
 	basetext, substitutions = madlibs.generate_madlib(text)
 	basetext_obj = BaseText(text=basetext)
 	basetext_obj.save()
